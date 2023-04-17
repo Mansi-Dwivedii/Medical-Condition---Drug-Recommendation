@@ -29,9 +29,6 @@ lemmatizer = WordNetLemmatizer()
 
 st.set_page_config(page_title="Medical Condition - Drug Recommendation", page_icon=":dna:", layout="centered")
 
-#try:
-#	st.write("File found")
-#except FileNotFoundError:
 vectorizer = joblib.load(Tokenizer_PATH) #Loading Vectorizer
 model = joblib.load(Model_PATH) #Loading Model
 
@@ -59,12 +56,10 @@ def main():
     submit = st.button("Submit")
     X = pd.DataFrame({'Review':[review]})
     if submit:
-        #st.session_state["my_input"] = review
         X['cleaned_review'] = X["Review"].apply(review_words)
         cleaned = X['cleaned_review']
         st.subheader("User Medical Review")
         st.write("Review: ",X["Review"][0])
-        #cleaned = cleanText(review)
         tfidf_vect = vectorizer.transform(cleaned)
         tfidf_vect = vectorizer.transform(cleaned)
         prediction = model.predict(tfidf_vect)
@@ -84,7 +79,6 @@ def main():
     return main
 
 # --- USER AUTHENTICATION ---
-#def main():
 st.title(":blue[Medical Condition - Drug Recommendation] :dna:")
 
 menu = ["Login", "Logout"]
@@ -102,20 +96,14 @@ if choice == "Login":
 		elif password != "Admin@23":
 			st.warning("Incorrect Username/Password")
 	else:
-		#try:
-		#	st.write("File Found")
-		#except FileNotFoundError:
 		image = Image.open('drugimg.jpg')
 		st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-	try:
-		if __name__ == '__main__':
-			main()
-	except:
-		st.warning("Duplicated values, Please click on Submit")
-elif choice == "Logout":
 	#try:
-	#	st.write("File Found")
-	#except FileNotFoundError:
+	if __name__ == '__main__':
+		main()
+	#except:
+	#	st.warning("Duplicated values, Please click on Submit")
+elif choice == "Logout":
 	image = Image.open('drugimg.jpg')
 	st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 	st.success("Logged out Successfully")		
