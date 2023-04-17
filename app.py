@@ -31,9 +31,9 @@ st.set_page_config(page_title="Medical Condition - Drug Recommendation", page_ic
 
 try:
 	vectorizer = joblib.load(Tokenizer_PATH) #Loading Vectorizer
+	model = joblib.load(Model_PATH) #Loading Model
 except FileNotFoundError:
 	st.write("File found")
-model = joblib.load(Model_PATH) #Loading Model
 
 def review_words(raw_review):
     # Deleting HTML
