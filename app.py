@@ -101,12 +101,12 @@ if choice == "Login":
 			main()
 		elif password != "Admin@23":
 			st.warning("Incorrect Username/Password")
-	else: 
+	else:
 		try:
-			st.write("File Found"
+			st.write("File Found")
 		except FileNotFoundError:
 			image = Image.open('drugimg.jpg')
-			st.image(image, caption=None, width=None, use_column_width=None, clamp=False, chan
+			st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 	try:
 		if __name__ == '__main__':
 			main()
@@ -118,4 +118,4 @@ elif choice == "Logout":
 	except FileNotFoundError:
 		image = Image.open('drugimg.jpg')
 		st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-		st.success("Logged out Successfully")
+		st.success("Logged out Successfully")		
