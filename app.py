@@ -112,5 +112,5 @@ elif choice == "Logout":
 try:
         if __name__ == '__main__':
             main()
-    except:
-        st.warning("Duplicated values, Please click on Submit")
+except:
+    st.warning("Duplicated values, Please click on Submit")
