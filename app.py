@@ -25,25 +25,6 @@ import nltk
 
 nltk.download('stopwords')
 
-def is_good_word(word):
-    word = word.strip()
-    if len(word) <= 2:
-        return 0
-    if word in stop_words:
-        return 0
-    try:
-        if len(wn.lemmas(str(word), lang='en')) == 0:     # no longer the first access of wn
-            return 0
-    except WordNetError as e:
-        print("WordNetError on concept {}".format(word))
-    except AttributeError as e:
-        print("Attribute error on concept {}: {}".format(word, e.message))
-    except:
-        print("Unexpected error on concept {}: {}".format(word, sys.exc_info()[0]))
-    else:
-        return 1
-    return 1
-
 stop_words = stopwords.words('english')
 lemmatizer = WordNetLemmatizer()
 
@@ -101,7 +82,6 @@ def main():
     return main
 
 # --- USER AUTHENTICATION ---
-#def main():
 st.title(":blue[Medical Condition - Drug Recommendation] :dna:")
 
 menu = ["Login", "Logout"]
@@ -113,19 +93,16 @@ if choice == "Login":
 
     username = st.sidebar.text_input("User Name")
     password = st.sidebar.text_input("Password",type="password")
-    #authenticator = stauth.Authenticate(username,password, "Medical Condition - Drug Recommendation","abcdef", cookie_expiry_days=30)
     if st.sidebar.button("Login"):
        if password == "Admin@23":
            st.success("Logged in as {}".format(username))
            main()
-           #review = st.text_input("Enter Your Medical Condition", max_chars=1000)    
        elif password != "Admin@23":
             st.warning("Incorrect Username/Password")
     else:
         image = Image.open('drugimg.jpg')
         st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-        #main()
-        #st.write("Error has occured !")
+        st.write("Error has occured !")
     try:
         if __name__ == '__main__':
             main()
@@ -135,12 +112,3 @@ elif choice == "Logout":
     image = Image.open('drugimg.jpg')
     st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     st.success("Logged out Successfully")
-
-
-
-
-
-		
-
-
-
