@@ -7,7 +7,6 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
 import joblib
-#from sklearn.externals import joblib
 import re
 import pandas as pd
 import streamlit_authenticator as stauth 
