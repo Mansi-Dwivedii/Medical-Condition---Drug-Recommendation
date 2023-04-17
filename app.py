@@ -15,6 +15,8 @@ from nltk.corpus import wordnet as wn
 from nltk.corpus.reader.wordnet import WordNetError
 import streamlit_authenticator as stauth
 from PIL import Image
+import nltk
+nltk.download('stopwords')
 
 Model_PATH = "PACmodel.pkl"
 
