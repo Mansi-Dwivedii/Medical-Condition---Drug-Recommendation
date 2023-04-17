@@ -16,6 +16,7 @@ from nltk.corpus.reader.wordnet import WordNetError
 import streamlit_authenticator as stauth
 from PIL import Image
 import nltk
+import sys
 nltk.download('stopwords')
 
 Model_PATH = "PACmodel.pkl"
@@ -26,6 +27,25 @@ DATA_PATH ="drugsCom.csv"
 
 stop_words = stopwords.words('english')
 lemmatizer = WordNetLemmatizer()
+
+def is_good_word(word):
+    word = word.strip()
+    if len(word) <= 2:
+        return 0
+    if word in stop_words:
+        return 0
+    try:
+        if len(wn.lemmas(str(word), lang='en')) == 0:     # no longer the first access of wn
+            return 0
+    except WordNetError as e:
+        print("WordNetError on concept {}".format(word))
+    except AttributeError as e:
+        print("Attribute error on concept {}: {}".format(word, e.message))
+    except:
+        print("Unexpected error on concept {}: {}".format(word, sys.exc_info()[0]))
+    else:
+        return 1
+    return 1
 
 st.set_page_config(page_title="Medical Condition - Drug Recommendation", page_icon=":dna:", layout="centered")
 
@@ -98,11 +118,11 @@ if choice == "Login":
 	else:
 		image = Image.open('drugimg.jpg')
 		st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-	#try:
-	if __name__ == '__main__':
-		main()
-	#except:
-	#	st.warning("Duplicated values, Please click on Submit")
+	try:
+		if __name__ == '__main__':
+			main()
+	except:
+		st.warning("Duplicated values, Please click on Submit")
 elif choice == "Logout":
 	image = Image.open('drugimg.jpg')
 	st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
