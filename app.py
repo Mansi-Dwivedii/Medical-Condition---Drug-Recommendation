@@ -98,11 +98,9 @@ if choice == "Login":
     password = st.sidebar.text_input("Password",type="password")
     #authenticator = stauth.Authenticate(username,password, "Medical Condition - Drug Recommendation","abcdef", cookie_expiry_days=30)
     if st.sidebar.button("Login"):
-	
         if password == "Admin@23":
 		st.success("Logged in as {}".format(username))
 		main()
-           #review = st.text_input("Enter Your Medical Condition", max_chars=1000)    
         elif password != "Admin@23":
 		st.warning("Incorrect Username/Password")
             
