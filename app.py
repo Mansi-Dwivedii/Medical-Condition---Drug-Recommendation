@@ -95,7 +95,7 @@ def main():
 		st.write("Drug 3: ",top_drugs.iloc[2])
 	else:
 		st.write("Enter review & press submit")
-	#return main()
+	return main()
 
 # --- USER AUTHENTICATION ---
 st.title(":blue[Medical Condition - Drug Recommendation] :dna:")
