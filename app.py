@@ -30,10 +30,10 @@ lemmatizer = WordNetLemmatizer()
 st.set_page_config(page_title="Medical Condition - Drug Recommendation", page_icon=":dna:", layout="centered")
 
 try:
+	st.write("File found")
+except FileNotFoundError:
 	vectorizer = joblib.load(Tokenizer_PATH) #Loading Vectorizer
 	model = joblib.load(Model_PATH) #Loading Model
-except FileNotFoundError:
-	st.write("File found")
 
 def review_words(raw_review):
     # Deleting HTML
