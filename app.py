@@ -106,8 +106,8 @@ if choice == "Login":
             st.warning("Incorrect Username/Password")
     else:
 	try:
-		image = Image.open('drugimg.jpg')
-		st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+	    image = Image.open('drugimg.jpg')
+	    st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 	except FileNotFoundError:
 		st.write("File Found")
 
@@ -118,9 +118,9 @@ if choice == "Login":
         st.warning("Duplicated values, Please click on Submit")
 elif choice == "Logout":
 	try:
-		image = Image.open('drugimg.jpg')
-    		st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    		st.success("Logged out Successfully")
+	    image = Image.open('drugimg.jpg')
+    	    st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+            st.success("Logged out Successfully")
 	except FileNotFoundError:
 		st.write("File Found")
 		
