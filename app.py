@@ -92,29 +92,26 @@ menu = ["Login", "Logout"]
 choice = st.sidebar.selectbox("Login/Logout as Admin",menu)
 
 if choice == "Login":
-    st.sidebar.subheader("Login as Admin")
-
-    username = st.sidebar.text_input("User Name")
-    password = st.sidebar.text_input("Password",type="password")
-    #authenticator = stauth.Authenticate(username,password, "Medical Condition - Drug Recommendation","abcdef", cookie_expiry_days=30)
-    if st.sidebar.button("Login"):
-        if password == "Admin@23":
-	    st.success("Logged in as {}".format(username))
-	    main()
-        elif password != "Admin@23":
-	      st.warning("Incorrect Username/Password")
-            
-    else:
+	st.sidebar.subheader("Login as Admin")
+	username = st.sidebar.text_input("User Name")
+	password = st.sidebar.text_input("Password",type="password")
+	if st.sidebar.button("Login"):
+		if password == "Admin@23":
+			st.success("Logged in as {}".format(username))
+			main()
+		elif password != "Admin@23":
+			st.warning("Incorrect Username/Password")
+	else: 
+		try:
+			image = Image.open('drugimg.jpg')
+			st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+		except FileNotFoundError:
+			st.write("File Found")
 	try:
-	    image = Image.open('drugimg.jpg')
-	    st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-	except FileNotFoundError:
-		st.write("File Found")
-    try:
-        if __name__ == '__main__':
-            main()
-    except:
-        st.warning("Duplicated values, Please click on Submit")
+		if __name__ == '__main__':
+			main()
+	except:
+		st.warning("Duplicated values, Please click on Submit")        
 elif choice == "Logout":
 	try:
 	    image = Image.open('drugimg.jpg')
