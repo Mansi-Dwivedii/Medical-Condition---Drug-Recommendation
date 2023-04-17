@@ -24,6 +24,7 @@ DATA_PATH ="drugsCom.csv"
 import nltk
 
 nltk.download('stopwords')
+nltk.download('wordnet')
 
 def is_good_word(word):
     word = word.strip()
