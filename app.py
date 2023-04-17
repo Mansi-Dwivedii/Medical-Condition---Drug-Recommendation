@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 import joblib
 import re
 import pandas as pd
-import streamlit_authenticator as stauth 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import wordnet as wn
 from nltk.corpus.reader.wordnet import WordNetError
