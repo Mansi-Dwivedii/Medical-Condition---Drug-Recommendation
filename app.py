@@ -29,8 +29,7 @@ lemmatizer = WordNetLemmatizer()
 
 st.set_page_config(page_title="Medical Condition - Drug Recommendation", page_icon=":dna:", layout="centered")
 
-with open(Tokenizer_PATH, 'rb') as f:
-	vectorizer = joblib.load(f) #Loading Vectorizer
+vectorizer = joblib.load(f) #Loading Vectorizer
 model = joblib.load(Model_PATH) #Loading Model
 
 def review_words(raw_review):
