@@ -111,21 +111,12 @@ if choice == "Login":
 		if __name__ == '__main__':
 			main()
 	except:
-		st.warning("Duplicated values, Please click on Submit")        
+		st.warning("Duplicated values, Please click on Submit")
 elif choice == "Logout":
 	try:
-	    image = Image.open('drugimg.jpg')
-    	    st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-            st.success("Logged out Successfully")
+		image = Image.open('drugimg.jpg')
+		st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+		st.success("Logged out Successfully")
 	except FileNotFoundError:
 		st.write("File Found")
 		
-
-
-
-
-
-		
-
-
-
