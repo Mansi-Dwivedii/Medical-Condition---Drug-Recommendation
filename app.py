@@ -29,9 +29,9 @@ lemmatizer = WordNetLemmatizer()
 
 st.set_page_config(page_title="Medical Condition - Drug Recommendation", page_icon=":dna:", layout="centered")
 
-try FileNotFoundError:
+try:
 	vectorizer = joblib.load(Tokenizer_PATH) #Loading Vectorizer
-except:
+except FileNotFoundError:
 	st.write(File found)
 model = joblib.load(Model_PATH) #Loading Model
 
